@@ -457,14 +457,15 @@
 	/* ── Story layout: text left | sticky media right ── */
 	.story-layout {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		align-items: start;
 	}
 
 	/* Text column */
 	.story-text {
-		padding: 0 3rem 30vh 2rem;
-		max-width: 520px;
+		padding: 0 1.5rem 10vh;
+		max-width: 100%;
+		order: 2;
 	}
 	.story-layout .ch-rule {
 		background: rgba(255, 255, 255, 0.22);
@@ -487,28 +488,30 @@
 
 	/* Each scroll step: tall enough for scroll rhythm */
 	.scroll-step {
-		min-height: 80vh;
+		min-height: 60vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		padding: 6vh 0;
-		opacity: 0.52;
+		opacity: 1;
 		transition: opacity 0.25s ease;
-		border-left: 2px solid transparent;
-		padding-left: 1rem;
+		border-left: none;
+		padding-left: 0;
 	}
 	.scroll-step.active {
 		opacity: 1;
-		border-left-color: rgba(81, 99, 99, 0.35);
+		border-left-color: transparent;
 	}
 
 	/* Sticky media panel */
 	.story-media {
 		position: sticky;
 		top: 0;
-		height: 100vh;
+		height: 45vh;
 		overflow: hidden;
 		background: #0a0f12;
+		order: 1;
+		z-index: 0;
 	}
 	.media-step-flash {
 		position: absolute;
@@ -744,13 +747,10 @@
 			margin-bottom: 1.7rem;
 		}
 		.story-layout {
-			grid-template-columns: 1fr;
 			margin-top: 3.2vh;
 		}
 		.story-text {
-			padding: 0 1.5rem 10vh;
-			max-width: 100%;
-			order: 2;
+			padding: 0 1rem 10vh;
 		}
 		.story-layout .ch-rule {
 			background: rgba(255, 255, 255, 0.18);
@@ -759,11 +759,7 @@
 			color: rgba(255, 255, 255, 0.9);
 		}
 		.story-media {
-			position: sticky;
-			top: 0;
 			height: 45vh;
-			order: 1;
-			z-index: 0;
 		}
 		.media-step-flash {
 			top: 0.6rem;
@@ -774,10 +770,7 @@
 			letter-spacing: 0.12em;
 		}
 		.scroll-step {
-			min-height: 60vh;
-			opacity: 1;
-			border-left: none;
-			padding-left: 0;
+			min-height: 58vh;
 		}
 		.footer-cta {
 			flex-direction: column;
