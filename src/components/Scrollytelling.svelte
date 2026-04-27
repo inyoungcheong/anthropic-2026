@@ -15,7 +15,7 @@
 			paras: [
 				"I passed South Korea's national civil service exam, one of about a hundred finalists selected from 5,500 applicants. Over eight years in the Korean civil service, I served as Deputy Director across the Korea Communications Commission and the Ministry of Culture, Sports and Tourism. I drafted media regulation, led inter-agency negotiations, and administered AI and creative-industry R&D budgets."
 			],
-			media: { type: 'photo', src: '/images/govt_meeting.jpg', caption: 'Policy meeting at the Korea Communications Commission, 2012' }
+			media: { type: 'photo', src: '/images/policy.png', caption: 'Scenes from my years working on media regulation and creative industries policy' }
 		},
 		{
 			section: 'hook',
@@ -71,7 +71,7 @@
 			paras: [
 				"I presented AI Mental States and Accountability at the inaugural Law-Following AI Workshop at the University of Cambridge. It was an invitation-only workshop with law and computer science faculty from the US and Europe. In the same period, I was selected as a featured speaker at IASEAI 2025 in Paris, one of 40 selected from more than 1,000 applicants."
 			],
-			media: { type: 'photo', src: '/images/scholar_uk_present_2025.jpg', caption: 'Law-Following AI Workshop, University of Cambridge, 2025', link: { href: 'https://www.youtube.com/watch?v=0ukHp98RlcQ', label: 'Watch talk ↗' } }
+			media: { type: 'photo', src: '/images/scholar_uk_present_2025.jpg', position: 'center bottom', caption: 'Law-Following AI Workshop, University of Cambridge, 2025', link: { href: 'https://www.youtube.com/watch?v=0ukHp98RlcQ', label: 'Watch talk ↗' } }
 		},
 		{
 			section: 'princeton',
@@ -246,7 +246,7 @@
 			{#key activeMedia?.src}
 				<div class="media-content" transition:fade={{ duration: 350 }}>
 					{#if activeMedia?.type === 'photo'}
-						<img class="media-fill" src={asset(activeMedia.src)} alt="" />
+						<img class="media-fill" style={`object-position: ${activeMedia.position ?? 'center center'};`} src={asset(activeMedia.src)} alt="" />
 					{:else if activeMedia?.type === 'video'}
 						<video
 							class="media-fill"
@@ -314,10 +314,12 @@
 
 	<!-- Full-width: Research -->
 	<section class="chapter-full chapter-research" id="research">
-		<div class="ch-rule"></div>
-		<span class="ch-eyebrow">What I Would Build</span>
-		<h2 class="ch-title">Three projects.<br />Ready on day one.</h2>
-		<p class="ch-lead">These are not aspirational goals. They are extensions of work already underway.</p>
+		<div class="research-intro-sticky">
+			<div class="ch-rule"></div>
+			<span class="ch-eyebrow">What I Would Build</span>
+			<h2 class="ch-title">Three projects.<br />Ready on day one.</h2>
+			<p class="ch-lead">These are not aspirational goals. They are extensions of work already underway.</p>
+		</div>
 		<div class="research-cards-wrap">
 			<ResearchCards />
 		</div>
@@ -499,6 +501,26 @@
 	}
 	.story-layout .scroll-step:not(.active) .ch-body {
 		color: rgba(255, 255, 255, 0.56);
+	}
+	.scroll-step[data-step="10"] .ch-rule,
+	.scroll-step[data-step="11"] .ch-rule {
+		background: rgba(38, 48, 52, 0.22);
+	}
+	.scroll-step[data-step="10"] .ch-eyebrow,
+	.scroll-step[data-step="11"] .ch-eyebrow {
+		color: rgba(36, 46, 50, 0.88);
+	}
+	.scroll-step[data-step="10"] .ch-body,
+	.scroll-step[data-step="11"] .ch-body {
+		color: rgba(33, 43, 46, 0.9);
+	}
+	.scroll-step[data-step="10"] .ch-body.lead,
+	.scroll-step[data-step="11"] .ch-body.lead {
+		color: #1e2a2a;
+	}
+	.scroll-step[data-step="10"]:not(.active) .ch-body,
+	.scroll-step[data-step="11"]:not(.active) .ch-body {
+		color: rgba(42, 53, 53, 0.62);
 	}
 
 	/* Each scroll step: tall enough for scroll rhythm */
@@ -682,6 +704,14 @@
 
 	.chapter-research { padding-top: 10vh; }
 	.chapter-forward  { padding-top: 6vh;  }
+	.research-intro-sticky {
+		position: sticky;
+		top: 0;
+		z-index: 3;
+		background: rgba(255, 255, 255, 0.95);
+		padding-top: 1.2rem;
+		padding-bottom: 1rem;
+	}
 	#anthropic,
 	.chapter-research,
 	.chapter-forward {
@@ -694,6 +724,7 @@
 	.research-cards-wrap {
 		width: 100%;
 		max-width: 656px;
+		padding-top: 0.8rem;
 	}
 
 	.ch-title {
@@ -792,6 +823,11 @@
 		}
 		.story-layout .ch-body {
 			color: rgba(255, 255, 255, 0.9);
+		}
+		.research-intro-sticky {
+			top: 0;
+			padding-top: 0.8rem;
+			padding-bottom: 0.7rem;
 		}
 		.story-media {
 			height: 45vh;
