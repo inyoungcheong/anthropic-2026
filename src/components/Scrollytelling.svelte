@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 	import scrollama from 'scrollama';
 	import ResearchCards from '$components/ResearchCards.svelte';
+
+	const asset = (path) => `${base}${path}`;
 
 	const STEPS = [
 		// ── Government ──
@@ -133,7 +136,7 @@
 	}
 
 	onMount(() => {
-		bgAudio = new Audio('/audio/background.mp3');
+		bgAudio = new Audio(asset('/audio/background.mp3'));
 		bgAudio.loop = true;
 		bgAudio.volume = 0.45;
 		const anthropicSection = document.getElementById('anthropic');
@@ -177,7 +180,7 @@
 
 <div class="page">
 	<section class="nyt-hero">
-		<img class="nyt-hero-bg" src="/images/back.png" alt="" />
+		<img class="nyt-hero-bg" src={asset('/images/back.png')} alt="" />
 		<div class="nyt-hero-overlay"></div>
 		<div class="nyt-hero-content">
 			<h1>
@@ -235,7 +238,7 @@
 			{#key activeMedia?.src}
 				<div class="media-content" transition:fade={{ duration: 350 }}>
 					{#if activeMedia?.type === 'photo'}
-						<img class="media-fill" src={activeMedia.src} alt="" />
+						<img class="media-fill" src={asset(activeMedia.src)} alt="" />
 					{:else if activeMedia?.type === 'video'}
 						<video
 							class="media-fill"
@@ -245,7 +248,7 @@
 							loop
 							playsinline
 						>
-							<source src={activeMedia.src} type="video/mp4" />
+							<source src={asset(activeMedia.src)} type="video/mp4" />
 						</video>
 					{/if}
 					{#if activeMedia?.caption}
