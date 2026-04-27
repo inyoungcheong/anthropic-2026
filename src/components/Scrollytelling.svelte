@@ -78,14 +78,14 @@
 				"I care about AI safety because many serious harms do not arrive as visible catastrophe. They appear gradually through erosion of agency in ordinary interactions with sophisticated systems. These harms can be psychological, relational, and hard to trace.",
 				"Existing law is often poorly equipped to address them because legal doctrine usually requires a clear injury, a culpable actor, and a causal chain. The gap between what AI can do to people and what institutions can recognize remains central to my research."
 			],
-			media: { type: 'video', src: '/video/iasesai.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
+			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
 		},
 		{
 			section: 'safe',
 			paras: [
 				"A teenager who turns to a chatbot every night may experience comfort, however that comfort is mediated by a system designed and governed by someone else. AI agents can feel personal while remaining structurally loyal to companies. These risks are not hypothetical to me. I have studied them, written about them, and presented them in Paris, Cambridge, and Princeton."
 			],
-			media: { type: 'video', src: '/video/iasesai.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
+			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
 		},
 		// ── Building Things ──
 		{
