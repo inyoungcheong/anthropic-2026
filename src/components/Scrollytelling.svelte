@@ -11,11 +11,11 @@
 		// ── Government ──
 		{
 			section: 'hook',
-			eyebrow: '2012–2018 · Government',
+			eyebrow: '2012–2019 · Government',
 			paras: [
-				"I passed South Korea's national civil service exam, one of about a hundred finalists selected from 5,500 applicants. Over the next eight years I rotated across agencies and policy domains, including media regulation, data protection, and creative industries. I drafted legislation, led negotiations with parliament, wrote speeches for Presidents and Ministers, and navigated bustling press rooms."
+				"I passed South Korea's national civil service exam, one of about a hundred finalists selected from 5,500 applicants. Over eight years in the Korean civil service, I served as Deputy Director across the Korea Communications Commission and the Ministry of Culture, Sports and Tourism. I drafted media regulation, led inter-agency negotiations, and administered AI and creative-industry R&D budgets."
 			],
-			media: { type: 'photo', src: '/images/govt_meeting.jpg', caption: 'Policy meeting at the Korea Communications Commission, 2014' }
+			media: { type: 'photo', src: '/images/govt_meeting.jpg', caption: 'Policy meeting at the Korea Communications Commission, 2012' }
 		},
 		{
 			section: 'hook',
@@ -23,7 +23,7 @@
 			paras: [
 				"The curators of the National Museum of Korea had dreamed of immersive exhibition technology for decades. Every proposal came back rejected, dismissed as too expensive with no economic case. I reframed it as a technology innovation project, then walked it through the National Assembly and the Ministry of Finance. We secured $10 million and built one of the most advanced exhibition spaces in the world. Grammy-winning artist BTS shot a music video there."
 			],
-			media: { type: 'video', src: '/video/museum.mp4', muted: false, fit: 'contain' }
+			media: { type: 'video', src: '/video/museum.mp4', muted: true, fit: 'contain', allowSound: true }
 		},
 		// ── Seattle ──
 		{
@@ -52,7 +52,7 @@
 		{
 			section: 'move',
 			paras: [
-				"By 2023, this line of work had become concrete. I presented Case Repositories, a project on case-based reasoning for AI alignment, at a NeurIPS workshop."
+				"My core profile was built across law and computer science rather than inside one silo. I completed a PhD in Law at the University of Washington in 2024 while spending three years embedded as a research assistant across two computer science labs. Across this period, I published 22 peer-reviewed pieces, including work at FAccT, CHI, AIES, COLM, and law reviews, with 16 first- or sole-authored."
 			],
 			media: { type: 'photo', src: '/images/uw_presentation_neurips_2023.png', caption: 'NeurIPS 2023 MP2 Workshop', link: { href: 'https://arxiv.org/abs/2310.07019', label: 'Read paper ↗' } }
 		},
@@ -69,9 +69,16 @@
 		{
 			section: 'princeton',
 			paras: [
-				"I presented AI Mental States and Accountability at the inaugural Law-Following AI Workshop at the University of Cambridge. It was an invitation-only workshop with law and computer science faculty from the US and Europe. We focused on whether AI systems can be evaluated through legal concepts such as intent, reasons, and accountability."
+				"I presented AI Mental States and Accountability at the inaugural Law-Following AI Workshop at the University of Cambridge. It was an invitation-only workshop with law and computer science faculty from the US and Europe. In the same period, I was selected as a featured speaker at IASEAI 2025 in Paris, one of 40 selected from more than 1,000 applicants."
 			],
 			media: { type: 'photo', src: '/images/scholar_uk_present_2025.jpg', caption: 'Law-Following AI Workshop, University of Cambridge, 2025', link: { href: 'https://www.youtube.com/watch?v=0ukHp98RlcQ', label: 'Watch talk ↗' } }
+		},
+		{
+			section: 'princeton',
+			paras: [
+				"Alongside research, I teach and mentor across disciplines. I designed and taught a course on Technology Law and Public Policy at UW Law, supervised more than twenty students across law and computer science, and advised Korea's Personal Information Protection Commission on AI-related data protection guidance for over three years."
+			],
+			media: { type: 'photo', src: '/images/princeton_citp_present_2025.jpeg', caption: 'Princeton CITP Seminar, 2025' }
 		},
 		// ── Why Safe AI ──
 		{
@@ -81,14 +88,14 @@
 				"I care about AI safety because many serious harms do not arrive as visible catastrophe. They appear gradually through erosion of agency in ordinary interactions with sophisticated systems. These harms can be psychological, relational, and hard to trace.",
 				"Existing law is often poorly equipped to address them because legal doctrine usually requires a clear injury, a culpable actor, and a causal chain. The gap between what AI can do to people and what institutions can recognize remains central to my research."
 			],
-			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
+			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: true, fit: 'contain', allowSound: true, link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
 		},
 		{
 			section: 'safe',
 			paras: [
 				"A teenager who turns to a chatbot every night may experience comfort, however that comfort is mediated by a system designed and governed by someone else. AI agents can feel personal while remaining structurally loyal to companies. These risks are not hypothetical to me. I have studied them, written about them, and presented them in Paris, Cambridge, and Princeton."
 			],
-			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: false, fit: 'contain', link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
+			media: { type: 'video', src: '/video/iasesai-small.mp4', muted: true, fit: 'contain', allowSound: true, link: { href: 'https://youtu.be/G48hDgad-gE', label: 'Watch talk ↗' } }
 		},
 		// ── Building Things ──
 		{
@@ -126,6 +133,7 @@
 	let flashTimer;
 	let bgAudio;
 	let hasStartedBgAudio = false;
+	let userEnabledVideoSound = $state(false);
 
 	function flashStepLabel() {
 		showStepFlash = true;
@@ -243,13 +251,18 @@
 						<video
 							class="media-fill"
 							class:contain={activeMedia.fit === 'contain'}
-							muted={activeMedia.muted ?? true}
+							muted={!userEnabledVideoSound || !activeMedia?.allowSound}
 							autoplay
 							loop
 							playsinline
 						>
 							<source src={asset(activeMedia.src)} type="video/mp4" />
 						</video>
+					{/if}
+					{#if activeMedia?.type === 'video' && activeMedia?.allowSound && !userEnabledVideoSound}
+						<button class="unmute-btn" onclick={() => { userEnabledVideoSound = true; }}>
+							Tap to unmute
+						</button>
 					{/if}
 					{#if activeMedia?.caption}
 						<div class="media-caption-bar">
@@ -277,23 +290,25 @@
 
 		<p class="ch-body">
 			I am drawn to Anthropic because its safety work does not remain inside a narrow research
-			community. Anthropic publications on alignment faking, discrimination in model
-			decisions, subjective global opinions in language models, and the Claude System Card
-			have influenced how I think about public accountability in AI safety.
+			community. Publications on alignment faking, discrimination in model decisions,
+			subjective global opinions in language models, and the Claude System Card have shaped
+			how I think about public accountability in AI safety.
 		</p>
 		<p class="ch-body">
 			That matters to me because AI safety is not only a technical problem. It is also a
-			problem of institutional trust, democratic oversight, and public understanding.
+			problem of institutional trust, democratic oversight, and public understanding. My own
+			work has focused on translating difficult technical and legal questions into formats
+			that policymakers, journalists, and civil society can use.
 		</p>
 		<p class="ch-body">
 			I also value Anthropic's policy posture. The company supported SB-1047, endorsed
 			transparency-focused regulation, and maintained safety guardrails under political
 			pressure. I see those decisions as part of a commitment to public scrutiny through
-			legislation and transparent process.
+			legislation and transparent process rather than private discretion.
 		</p>
 		<p class="ch-body">
 			Anthropic's public benefit structure and its record of acting on stated principles are
-			why this is the place where I most want to do this work.
+			why this is the place where I most want to continue this work.
 		</p>
 	</section>
 
@@ -542,6 +557,26 @@
 	.media-content {
 		position: absolute;
 		inset: 0;
+	}
+	.unmute-btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 6;
+		border: 1px solid rgba(255, 255, 255, 0.58);
+		background: rgba(14, 20, 26, 0.64);
+		color: #fff;
+		padding: 0.45rem 0.7rem;
+		font-family: var(--font-sans);
+		font-size: 0.68rem;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		border-radius: 999px;
+		cursor: pointer;
+		backdrop-filter: blur(2px);
+	}
+	.unmute-btn:hover {
+		background: rgba(28, 36, 44, 0.9);
 	}
 	.media-fill {
 		position: absolute;
