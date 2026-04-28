@@ -1,53 +1,72 @@
 export const scenes = [
 	{
+		kicker: "Seoul",
+		variant: "landscape",
+		media: {
+			type: "video",
+			src: "/video/govt_back.mp4",
+			align: "center",
+			width: "100vw",
+			fit: "cover",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "This story begins in the South Korean government.",
+				placement: "bottom-left"
+			}
+		]
+	},
+	{
 		kicker: "2012-2019 / Government",
-		variant: "opening",
+		variant: "archive",
 		media: {
 			type: "photo",
 			align: "right",
-			width: "88vw",
+			width: "52vw",
 			fit: "cover",
 			items: [
-				{ type: "photo", src: "/images/govt_broadcasting.jpg", align: "center", width: "84vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_meeting.jpg", align: "right", width: "82vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_fashionweek.jpg", align: "left", width: "82vw", fit: "cover" }
+				{ type: "photo", src: "/images/govt_working.jpg", align: "right", width: "50vw", fit: "cover" },
+				{ type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "52vw", fit: "cover" },
+				{ type: "photo", src: "/images/govt_broadcasting.jpg", align: "left", width: "54vw", fit: "cover" }
 			]
 		},
 		beats: [
 			{
-				text: "Before Anthropic, there was government.",
+				text: "I passed the national civil service exam and spent eight years moving across agencies and policy domains.",
 				placement: "center-left",
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "Rooms full of paper, budgets, and competing public duties.",
+				text: "I drafted legislation, negotiated with parliament, and wrote speeches for Presidents and Ministers.",
 				placement: "center-left",
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "Technology policy arrived slowly, then all at once.",
-				placement: "center-left",
-				media: { type: "black", align: "center", width: "100vw", frame: "full" }
-			},
-			{
-				text: "I learned that new systems become real only when institutions can act.",
+				text: "The work taught me how difficult it is to turn public values into institutional action.",
 				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_broadcasting.jpg", align: "center", width: "84vw", fit: "cover" }
+				media: { type: "photo", src: "/images/govt_working.jpg", align: "right", width: "50vw", fit: "cover" }
 			},
 			{
-				text: "That lesson stayed with me as AI moved from research into public life.",
-				placement: "bottom-right",
-				media: { type: "photo", src: "/images/govt_meeting.jpg", align: "right", width: "82vw", fit: "cover" }
+				text: "My rotations included media regulation, data protection, and creative industries.",
+				placement: "bottom-left",
+				media: { type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "52vw", fit: "cover" }
 			},
 			{
-				text: "Public-interest technology had to be argued into existence.",
-				placement: "top-left",
-				media: { type: "photo", src: "/images/govt_fashionweek.jpg", align: "left", width: "82vw", fit: "cover" }
+				text: "Media regulation taught me that technical systems become public issues through explanation, trust, and institutional process.",
+				placement: "center-right",
+				media: { type: "photo", src: "/images/govt_broadcasting.jpg", align: "left", width: "54vw", fit: "cover" }
+			},
+			{
+				text: "One project made that lesson concrete.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
 		]
 	},
 	{
 		kicker: "A Museum Project",
+		variant: "silent",
 		media: {
 			type: "video",
 			src: "/video/museum.mp4",
@@ -56,70 +75,121 @@ export const scenes = [
 			fit: "contain",
 			allowSound: true
 		},
+		beats: []
+	},
+	{
+		kicker: "The Question",
+		variant: "pause",
+		media: {
+			type: "black",
+			align: "center",
+			width: "100vw",
+			frame: "full"
+		},
 		beats: [
 			{
-				text: "The project I am most proud of began as a proposal everyone thought was too expensive.",
-				placement: "top-left"
+				text: "I thought government might become my lifetime career.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "I reframed immersive exhibition technology as public-interest innovation, then walked it through the National Assembly and the Ministry of Finance.",
+				text: "At the same time, a question kept pressing on me.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "How should law protect freedom of expression when governments can be overbearing and global technology companies can be overwhelmingly powerful?",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "South Korea's government could feel both overbearing and powerless.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "That question brought me to the University of Washington School of Law as a Fulbright scholar.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			}
+		]
+	},
+	{
+		kicker: "Seattle",
+		variant: "landscape",
+		media: {
+			type: "video",
+			src: "/video/uw_back.mp4",
+			align: "center",
+			width: "100vw",
+			fit: "cover",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "I crossed the ocean to study the limits of institutional power.",
 				placement: "bottom-left"
-			},
-			{
-				text: "The result was a 10 million dollar immersive museum space, later used by BTS in a performance watched around the world.",
-				placement: "bottom-right"
-			},
-			{
-				text: "It was the first time I saw public-interest technology move from a written argument into a room people could enter.",
-				placement: "center-left"
 			}
 		]
 	},
 	{
 		kicker: "2019-2024 / Law + Computer Science",
 		media: {
-			type: "photo",
-			src: "/images/uw_law_friends_2019.jpg",
-			align: "left",
-			width: "82vw",
-			fit: "cover"
+			type: "video",
+			src: "/video/uw_lecture.mp4",
+			align: "right",
+			width: "86vw",
+			fit: "contain"
 		},
 		beats: [
 			{
 				text: "In 2019, I left Seoul on a Fulbright scholarship to study law at the University of Washington.",
-				placement: "top-right"
+				placement: "bottom-left",
+				media: { type: "photo", src: "/images/uw_law_friends_2019.jpg", align: "left", width: "82vw", fit: "cover" }
 			},
 			{
 				text: "I expected to stay in my lane as a legal scholar.",
-				placement: "center-right"
+				placement: "center-left",
+				media: { type: "video", src: "/video/uw_lecture.mp4", align: "right", width: "86vw", fit: "contain" }
 			},
 			{
 				text: "Instead, the questions that mattered most kept crossing the boundaries that universities and agencies had drawn for them.",
-				placement: "bottom-right"
+				placement: "bottom-right",
+				media: { type: "video", src: "/video/uw_study.mp4", align: "center", width: "84vw", fit: "contain" }
 			}
 		]
 	},
 	{
 		kicker: "Crossing Buildings",
 		media: {
-			type: "photo",
-			src: "/images/uwcs_2022.jpeg",
-			align: "right",
-			width: "86vw",
-			fit: "cover"
+			type: "video",
+			src: "/video/uw_study.mp4",
+			align: "center",
+			width: "84vw",
+			fit: "contain"
 		},
 		beats: [
 			{
 				text: "One course on explainable AI pulled me into a computer science building I had never entered.",
-				placement: "top-left"
+				placement: "top-left",
+				media: { type: "photo", src: "/images/uw_study.jpg", align: "right", width: "84vw", fit: "cover" }
 			},
 			{
 				text: "For three years, I worked between law and CS, learning the pace of labs, conferences, datasets, and collaborative technical research.",
-				placement: "bottom-left"
+				placement: "bottom-left",
+				media: {
+					type: "photo",
+					src: "/images/uw_presentation_neurips_2023.png",
+					align: "center",
+					width: "82vw",
+					fit: "contain",
+					position: "center 32%"
+				}
 			},
 			{
 				text: "I was often the only person in the room who had drafted legislation and also sat through a machine learning lecture.",
-				placement: "bottom-right"
+				placement: "bottom-right",
+				media: { type: "photo", src: "/images/uwcs_2022.jpeg", align: "right", width: "82vw", fit: "cover" }
 			}
 		]
 	},
@@ -144,6 +214,24 @@ export const scenes = [
 			{
 				text: "I published across FAccT, CHI, AIES, COLM, and law reviews, often writing from the space between fields rather than from the center of one.",
 				placement: "top-right"
+			}
+		]
+	},
+	{
+		kicker: "Princeton",
+		variant: "landscape",
+		media: {
+			type: "video",
+			src: "/video/princeton_back.mp4",
+			align: "center",
+			width: "100vw",
+			fit: "cover",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "The question widened again.",
+				placement: "bottom-left"
 			}
 		]
 	},

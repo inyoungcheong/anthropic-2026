@@ -1,10 +1,14 @@
 <script>
 	import Scene from "$components/Scene.svelte";
+	import FinaleGlass from "$components/FinaleGlass.svelte";
 	import ResearchCards from "$components/ResearchCards.svelte";
+	import ScrollProgress from "$components/ScrollProgress.svelte";
 	import { scenes } from "$data/scenes.js";
 </script>
 
 <div class="page">
+	<ScrollProgress />
+
 	<section class="hero">
 		<img src="images/back.png" alt="" />
 		<div class="hero-shade"></div>
@@ -16,22 +20,6 @@
 				translate difficult systems into forms people can scrutinize, understand, and act on.
 			</p>
 		</div>
-	</section>
-
-	<section class="prologue">
-		<p>
-			This story begins with translation across institutions, disciplines, technical systems,
-			and publics.
-		</p>
-		<p>
-			At the Anthropic Institute, I want to make AI safety research more legible, usable, and
-			publicly accountable.
-		</p>
-		<p>
-			The path here has moved through government offices, law classrooms, computer science
-			labs, public talks, and tools built with Claude. Each setting taught me a different way
-			to make complex systems answerable to people.
-		</p>
 	</section>
 
 	{#each scenes as scene, index}
@@ -91,6 +79,8 @@
 			<a href="https://inyoungcheong.github.io" target="_blank" rel="noopener">inyoungcheong.github.io</a>
 		</div>
 	</section>
+
+	<FinaleGlass />
 </div>
 
 <style>
@@ -162,7 +152,6 @@
 		color: rgba(255, 255, 255, 0.86);
 	}
 
-	.prologue,
 	.chapter {
 		display: grid;
 		grid-template-columns:
@@ -173,12 +162,10 @@
 		background: #070908;
 	}
 
-	.prologue > *,
 	.chapter > * {
 		grid-column: 2;
 	}
 
-	.prologue p,
 	.chapter-copy p,
 	.lead {
 		margin: 0 0 1.5rem;
@@ -264,7 +251,6 @@
 			font-size: clamp(2.35rem, 13vw, 4rem);
 		}
 
-		.prologue,
 		.chapter {
 			padding: 10vh 0;
 		}

@@ -9,12 +9,31 @@
 
 	let activeBeat = $state(0);
 	let beatEls = [];
+	let sectionEl;
+	let videoEl = $state();
+	let sceneVisible = $state(false);
 	let userEnabledSound = $state(false);
 	const activeMedia = $derived(
 		scene.beats[activeBeat]?.media ??
 			scene.media.items?.[Math.min(activeBeat, scene.media.items.length - 1)] ??
 			scene.media
 	);
+
+	$effect(() => {
+		if (activeMedia.type !== "video" || !activeMedia.allowSound) userEnabledSound = false;
+	});
+
+	$effect(() => {
+		if (!videoEl) return;
+
+		if (activeMedia.type === "video" && sceneVisible) {
+			const playPromise = videoEl.play();
+			if (playPromise) playPromise.catch(() => {});
+		} else {
+			videoEl.pause();
+			videoEl.currentTime = 0;
+		}
+	});
 
 	onMount(() => {
 		const observer = new IntersectionObserver(
@@ -28,36 +47,55 @@
 			{ threshold: 0.55 }
 		);
 
+		const muteObserver = new IntersectionObserver(
+			([entry]) => {
+				sceneVisible = !!entry?.isIntersecting;
+				if (!entry?.isIntersecting) userEnabledSound = false;
+			},
+			{ threshold: 0.36 }
+		);
+
 		for (const el of beatEls) {
 			if (el) observer.observe(el);
 		}
 
-		return () => observer.disconnect();
+		if (sectionEl) muteObserver.observe(sectionEl);
+
+		return () => {
+			observer.disconnect();
+			muteObserver.disconnect();
+		};
 	});
 </script>
 
-<section class={`scene scene-${index} ${scene.variant ?? ""}`}>
+<section bind:this={sectionEl} class={`scene scene-${index} ${scene.variant ?? ""}`}>
 	<div class={`scene-media align-${activeMedia.align ?? scene.media.align ?? "center"}`}>
 		{#key activeMedia.src}
 			<div
 				class={`media-frame fit-${activeMedia.fit ?? scene.media.fit ?? "cover"} frame-${activeMedia.frame ?? "standard"}`}
-				style={`--media-width: ${activeMedia.width ?? scene.media.width ?? "86vw"};`}
+				style={`--media-width: ${activeMedia.width ?? scene.media.width ?? "86vw"}; --media-position: ${activeMedia.position ?? scene.media.position ?? "center center"};`}
 				transition:fade={{ duration: 520 }}
 			>
 				{#if activeMedia.type === "photo"}
 					<img src={asset(activeMedia.src)} alt="" />
 				{:else if activeMedia.type === "video"}
 					<video
+						bind:this={videoEl}
 						muted={!userEnabledSound || !activeMedia.allowSound}
-						autoplay
 						loop
 						playsinline
+						preload="metadata"
 					>
 						<source src={asset(activeMedia.src)} type="video/mp4" />
 					</video>
-					{#if activeMedia.allowSound && !userEnabledSound}
-						<button class="sound-button" onclick={() => (userEnabledSound = true)}>
-							Sound
+					{#if activeMedia.allowSound}
+						<button
+							class="sound-button"
+							class:enabled={userEnabledSound}
+							onclick={() => (userEnabledSound = !userEnabledSound)}
+							aria-pressed={userEnabledSound}
+						>
+							{userEnabledSound ? "Mute" : "Sound"}
 						</button>
 					{/if}
 				{:else if activeMedia.type === "black"}
@@ -130,7 +168,7 @@
 		width: 100vw;
 		height: 100vh;
 		box-shadow: none;
-		background: #050606;
+		background: #070908;
 	}
 
 	.media-frame::after {
@@ -152,20 +190,24 @@
 	}
 
 	.black-frame {
-		background:
-			radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.045), transparent 34%),
-			#050606;
+		background: #070908;
 	}
 
 	.fit-cover img,
 	.fit-cover video {
 		object-fit: cover;
+		object-position: var(--media-position);
 	}
 
 	.fit-contain img,
 	.fit-contain video {
 		object-fit: contain;
+		object-position: var(--media-position);
 		background: #050505;
+	}
+
+	.silent {
+		min-height: 118vh;
 	}
 
 	.sound-button {
@@ -174,7 +216,7 @@
 		bottom: 1rem;
 		z-index: 3;
 		border: 1px solid rgba(255, 255, 255, 0.58);
-		background: rgba(8, 10, 10, 0.55);
+		background: rgba(8, 10, 10, 0.64);
 		color: #fff;
 		padding: 0.45rem 0.7rem;
 		font-family: var(--font-sans);
@@ -182,6 +224,12 @@
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		cursor: pointer;
+	}
+
+	.sound-button.enabled {
+		background: rgba(254, 241, 236, 0.9);
+		color: #070908;
+		border-color: rgba(254, 241, 236, 0.9);
 	}
 
 	.scene-copy {
@@ -258,6 +306,145 @@
 		line-height: 1.08;
 	}
 
+	.archive .scene-media {
+		padding: 8vh 7vw;
+	}
+
+	.archive .media-frame {
+		height: min(58vh, 560px);
+		background: #070908;
+		box-shadow:
+			0 20px 70px rgba(0, 0, 0, 0.48),
+			0 0 0 1px rgba(254, 241, 236, 0.16);
+	}
+
+	.archive .frame-full {
+		height: 100vh;
+		box-shadow: none;
+	}
+
+	.archive .media-frame::after {
+		background:
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.18), transparent 34%, rgba(0, 0, 0, 0.28)),
+			linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent 42%, rgba(0, 0, 0, 0.16));
+	}
+
+	.archive .frame-full::after {
+		display: none;
+	}
+
+	.archive .beat {
+		min-height: 78vh;
+		padding: 11vh 8vw;
+	}
+
+	.archive .beat-inner {
+		max-width: min(700px, 82vw);
+	}
+
+	.archive p {
+		font-size: clamp(1.42rem, 3.1vw, 3.15rem);
+		line-height: 1.16;
+	}
+
+	.archive .kicker {
+		color: rgba(254, 241, 236, 0.72);
+	}
+
+	.landscape {
+		min-height: 150vh;
+		background: #070908;
+	}
+
+	.landscape .scene-media {
+		padding: 0;
+	}
+
+	.landscape .media-frame {
+		width: 100vw;
+		height: 100vh;
+		box-shadow: none;
+		background: #070908;
+	}
+
+	.landscape .media-frame::after {
+		background:
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.26), transparent 34%, rgba(0, 0, 0, 0.62)),
+			linear-gradient(to right, rgba(0, 0, 0, 0.46), transparent 48%);
+	}
+
+	.landscape .beat {
+		min-height: 95vh;
+		padding: 12vh 8vw;
+		align-items: flex-end;
+	}
+
+	.landscape .beat-inner {
+		max-width: min(780px, 82vw);
+		padding: 0;
+	}
+
+	.landscape .beat-inner::before {
+		inset: -1.8rem -1.4rem;
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.58), transparent 72%);
+	}
+
+	.landscape p {
+		font-size: clamp(2rem, 5vw, 5.8rem);
+		line-height: 1.02;
+		letter-spacing: 0;
+	}
+
+	.landscape .kicker {
+		margin-bottom: 1rem;
+		color: rgba(254, 241, 236, 0.72);
+	}
+
+	.pause {
+		min-height: calc((var(--beat-count, 5) + 1) * 92vh);
+		background: #070908;
+	}
+
+	.pause .scene-media {
+		padding: 0;
+	}
+
+	.pause .frame-full::after {
+		display: none;
+	}
+
+	.pause .black-frame {
+		background:
+			radial-gradient(circle at 18% 50%, rgba(254, 241, 236, 0.035), transparent 30%),
+			#070908;
+	}
+
+	.pause .beat {
+		min-height: 92vh;
+		padding: 14vh 10vw;
+	}
+
+	.pause .beat-inner {
+		max-width: min(860px, 82vw);
+		padding: 0;
+	}
+
+	.pause .beat-inner::before {
+		inset: -1.4rem -1rem;
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.44), transparent 70%);
+	}
+
+	.pause p {
+		font-size: clamp(1.7rem, 3.8vw, 4.45rem);
+		line-height: 1.08;
+		letter-spacing: 0;
+	}
+
+	.pause .kicker {
+		margin-bottom: 1.2rem;
+		color: rgba(254, 241, 236, 0.58);
+	}
+
 	.top-left,
 	.center-left,
 	.bottom-left {
@@ -303,6 +490,21 @@
 			height: 68vh;
 		}
 
+		.archive .scene-media {
+			padding: 5vh 1rem;
+			align-items: center;
+		}
+
+		.archive .media-frame {
+			width: min(92vw, var(--media-width));
+			height: 54vh;
+		}
+
+		.archive .frame-full {
+			width: 100vw;
+			height: 100vh;
+		}
+
 		.scene-copy {
 			margin-top: -86vh;
 		}
@@ -323,6 +525,35 @@
 		p {
 			font-size: clamp(1.28rem, 7vw, 2rem);
 			line-height: 1.32;
+		}
+
+		.archive p {
+			font-size: clamp(1.42rem, 9vw, 2.45rem);
+			line-height: 1.16;
+		}
+
+		.landscape {
+			min-height: 130vh;
+		}
+
+		.landscape .beat {
+			min-height: 86vh;
+			padding: 10vh 1.2rem;
+		}
+
+		.landscape p {
+			font-size: clamp(2rem, 12vw, 3.5rem);
+			line-height: 1.03;
+		}
+
+		.pause .beat {
+			min-height: 82vh;
+			padding: 10vh 1.2rem;
+		}
+
+		.pause p {
+			font-size: clamp(1.48rem, 9vw, 2.75rem);
+			line-height: 1.14;
 		}
 
 	}

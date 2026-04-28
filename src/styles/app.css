@@ -92,6 +92,16 @@ body {
 	background-color: #FFFFFF;
 }
 
+html {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	display: none;
+}
+
 h1 {
 	font-size: var(--48px, 48px);
 }

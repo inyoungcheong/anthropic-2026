@@ -1,4 +1,6 @@
 <script>
+	import { base } from "$app/paths";
+
 	let {
 		title = "Inyoung x Anthropic",
 		description = "A visual essay about Inyoung Cheong's path to AI safety and public-interest research at Anthropic.",
@@ -8,6 +10,7 @@
 	} = $props();
 
 	const image = $derived(`${url}/images/back.png`);
+	const favicon = $derived(`${base}/images/heart.svg`);
 </script>
 
 <svelte:head>
@@ -36,6 +39,7 @@
 	<meta name="robots" content="max-image-preview:large" />
 
 	<link rel="canonical" href={url} />
+	<link rel="icon" type="image/svg+xml" href={favicon} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
