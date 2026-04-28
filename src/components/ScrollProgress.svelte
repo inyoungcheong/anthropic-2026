@@ -180,19 +180,20 @@
 	.thumb {
 		pointer-events: auto;
 		cursor: grab;
-		stroke: #00f0ff;
+		stroke: #fffaf6;
 		stroke-width: 4;
 		filter:
 			drop-shadow(1px 1px 0 rgba(7, 9, 8, 0.9))
-			drop-shadow(0 0 4px rgba(0, 240, 255, 0.38));
+			drop-shadow(0 0 4px rgba(255, 250, 246, 0.34));
 		transition:
 			stroke-width 160ms ease,
 			stroke 160ms ease;
 	}
 
 	.thumb:hover,
+	.thumb:focus-visible,
 	.thumb.dragging {
-		stroke: #ff4fd8;
+		stroke: #ffb199;
 		stroke-width: 5.5;
 		cursor: grabbing;
 	}

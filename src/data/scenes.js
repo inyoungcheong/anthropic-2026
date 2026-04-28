@@ -26,9 +26,9 @@ export const scenes = [
 			width: "52vw",
 			fit: "cover",
 			items: [
-				{ type: "photo", src: "/images/govt_working.jpg", align: "right", width: "50vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "52vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_broadcasting.jpg", align: "left", width: "54vw", fit: "cover" }
+				{ type: "photo", src: "/images/govt_working.jpg", align: "right", width: "54vw", fit: "cover" },
+				{ type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "54vw", fit: "cover" },
+				{ type: "photo", src: "/images/govt_broadcasting.jpg", align: "right", width: "54vw", fit: "cover" }
 			]
 		},
 		beats: [
@@ -45,17 +45,17 @@ export const scenes = [
 			{
 				text: "The work taught me how difficult it is to turn public values into institutional action.",
 				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_working.jpg", align: "right", width: "50vw", fit: "cover" }
+				media: { type: "photo", src: "/images/govt_working.jpg", align: "right", width: "54vw", fit: "cover" }
 			},
 			{
 				text: "My rotations included media regulation, data protection, and creative industries.",
 				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "52vw", fit: "cover" }
+				media: { type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "54vw", fit: "cover" }
 			},
 			{
 				text: "Media regulation taught me that technical systems become public issues through explanation, trust, and institutional process.",
-				placement: "center-right",
-				media: { type: "photo", src: "/images/govt_broadcasting.jpg", align: "left", width: "54vw", fit: "cover" }
+				placement: "bottom-left",
+				media: { type: "photo", src: "/images/govt_broadcasting.jpg", align: "right", width: "54vw", fit: "cover" }
 			},
 			{
 				text: "One project made that lesson concrete.",
@@ -230,7 +230,7 @@ export const scenes = [
 		},
 		beats: [
 			{
-				text: "The question widened again.",
+				text: "After completing my doctorate, I began a postdoctoral fellowship at Princeton.",
 				placement: "bottom-left"
 			}
 		]
@@ -238,24 +238,26 @@ export const scenes = [
 	{
 		kicker: "2024-2026 / Princeton",
 		media: {
-			type: "photo",
-			src: "/images/princeton_citp_present_2025.jpeg",
-			align: "right",
-			width: "86vw",
-			fit: "cover"
+			type: "black",
+			align: "center",
+			width: "100vw",
+			frame: "full"
 		},
 		beats: [
 			{
 				text: "After completing my doctorate, I joined Princeton's Center for Information Technology Policy.",
-				placement: "top-left"
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
 				text: "CITP widened the circle by bringing AI safety, machine learning, natural language processing, law, and public policy into the same conversation.",
-				placement: "bottom-left"
+				placement: "bottom-left",
+				media: { type: "photo", src: "/images/princeton_citp_present_2025.jpeg", align: "right", width: "86vw", fit: "cover" }
 			},
 			{
 				text: "In spring 2026, that work extended to Harvard's Berkman Klein Center, another place where public institutions and AI governance meet.",
-				placement: "center-left"
+				placement: "center-left",
+				media: { type: "photo", src: "/images/scholar_uk_present_2025.jpg", align: "center", width: "74vw", fit: "contain" }
 			},
 			{
 				text: "The through line stayed the same. I kept asking how advanced systems can be made accountable to people outside the rooms where they are built.",

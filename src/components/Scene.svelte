@@ -9,7 +9,7 @@
 
 	let activeBeat = $state(0);
 	let beatEls = [];
-	let sectionEl;
+	let mediaEl;
 	let videoEl = $state();
 	let sceneVisible = $state(false);
 	let userEnabledSound = $state(false);
@@ -47,34 +47,37 @@
 			{ threshold: 0.55 }
 		);
 
-		const muteObserver = new IntersectionObserver(
+		const mediaObserver = new IntersectionObserver(
 			([entry]) => {
 				sceneVisible = !!entry?.isIntersecting;
 				if (!entry?.isIntersecting) userEnabledSound = false;
 			},
-			{ threshold: 0.36 }
+			{
+				threshold: 0,
+				rootMargin: "-18% 0px -18% 0px"
+			}
 		);
 
 		for (const el of beatEls) {
 			if (el) observer.observe(el);
 		}
 
-		if (sectionEl) muteObserver.observe(sectionEl);
+		if (mediaEl) mediaObserver.observe(mediaEl);
 
 		return () => {
 			observer.disconnect();
-			muteObserver.disconnect();
+			mediaObserver.disconnect();
 		};
 	});
 </script>
 
-<section bind:this={sectionEl} class={`scene scene-${index} ${scene.variant ?? ""}`}>
-	<div class={`scene-media align-${activeMedia.align ?? scene.media.align ?? "center"}`}>
+<section class={`scene scene-${index} ${scene.variant ?? ""}`}>
+	<div bind:this={mediaEl} class={`scene-media align-${activeMedia.align ?? scene.media.align ?? "center"}`}>
 		{#key activeMedia.src}
 			<div
 				class={`media-frame fit-${activeMedia.fit ?? scene.media.fit ?? "cover"} frame-${activeMedia.frame ?? "standard"}`}
 				style={`--media-width: ${activeMedia.width ?? scene.media.width ?? "86vw"}; --media-position: ${activeMedia.position ?? scene.media.position ?? "center center"};`}
-				transition:fade={{ duration: 520 }}
+				transition:fade={{ duration: scene.variant === "archive" ? 140 : 520 }}
 			>
 				{#if activeMedia.type === "photo"}
 					<img src={asset(activeMedia.src)} alt="" />
