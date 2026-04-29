@@ -1,6 +1,22 @@
 export const scenes = [
 	{
 		kicker: "Seoul",
+		variant: "landscape quiet",
+		media: {
+			type: "black",
+			align: "center",
+			width: "100vw",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "This story begins in the South Korean government.",
+				placement: "bottom-left"
+			}
+		]
+	},
+	{
+		kicker: "Central Government",
 		variant: "landscape",
 		media: {
 			type: "video",
@@ -12,7 +28,7 @@ export const scenes = [
 		},
 		beats: [
 			{
-				text: "This story begins in the South Korean government.",
+				text: "Out of 5,500 candidates, I was one of about 100 selected for Korea's national civil service.",
 				placement: "bottom-left"
 			}
 		]
@@ -21,19 +37,14 @@ export const scenes = [
 		kicker: "2012-2019 / Government",
 		variant: "archive",
 		media: {
-			type: "photo",
-			align: "right",
-			width: "52vw",
-			fit: "cover",
-			items: [
-				{ type: "photo", src: "/images/govt_working.jpg", align: "right", width: "54vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "54vw", fit: "cover" },
-				{ type: "photo", src: "/images/govt_broadcasting.jpg", align: "right", width: "54vw", fit: "cover" }
-			]
+			type: "black",
+			align: "center",
+			width: "100vw",
+			frame: "full"
 		},
 		beats: [
 			{
-				text: "I passed the national civil service exam and spent eight years moving across agencies and policy domains.",
+				text: "I spent eight years moving across agencies and policy domains.",
 				placement: "center-left",
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
@@ -43,22 +54,22 @@ export const scenes = [
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "The work taught me how difficult it is to turn public values into institutional action.",
-				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_working.jpg", align: "right", width: "54vw", fit: "cover" }
+				text: "It was exciting, demanding, and closer to the center of public decision-making than I ever expected to be in my twenties.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
 				text: "My rotations included media regulation, data protection, and creative industries.",
-				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_meeting2.jpg", align: "right", width: "54vw", fit: "cover" }
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
 				text: "Media regulation taught me that technical systems become public issues through explanation, trust, and institutional process.",
-				placement: "bottom-left",
-				media: { type: "photo", src: "/images/govt_broadcasting.jpg", align: "right", width: "54vw", fit: "cover" }
+				placement: "center-left",
+				media: { type: "video", src: "/video/assembly_back.mp4", align: "center", width: "100vw", fit: "cover", tone: "dark", frame: "full" }
 			},
 			{
-				text: "One project made that lesson concrete.",
+				text: "The most exciting project I worked on was with the National Museum of Korea.",
 				placement: "center-left",
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
@@ -134,86 +145,72 @@ export const scenes = [
 	},
 	{
 		kicker: "2019-2024 / Law + Computer Science",
+		motif: { type: "papers", intensity: "low", offset: 0 },
 		media: {
-			type: "video",
-			src: "/video/uw_lecture.mp4",
-			align: "right",
-			width: "86vw",
-			fit: "contain"
+			type: "black",
+			align: "center",
+			width: "100vw",
+			frame: "full"
 		},
 		beats: [
 			{
 				text: "In 2019, I left Seoul on a Fulbright scholarship to study law at the University of Washington.",
-				placement: "bottom-left",
-				media: { type: "photo", src: "/images/uw_law_friends_2019.jpg", align: "left", width: "82vw", fit: "cover" }
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
 				text: "I expected to stay in my lane as a legal scholar.",
 				placement: "center-left",
-				media: { type: "video", src: "/video/uw_lecture.mp4", align: "right", width: "86vw", fit: "contain" }
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "Instead, the questions that mattered most kept crossing the boundaries that universities and agencies had drawn for them.",
-				placement: "bottom-right",
-				media: { type: "video", src: "/video/uw_study.mp4", align: "center", width: "84vw", fit: "contain" }
+				text: "Questions about online free speech and privacy could not be answered by law alone.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
 		]
 	},
 	{
 		kicker: "Crossing Buildings",
+		motif: { type: "papers", intensity: "low", offset: 3 },
 		media: {
-			type: "video",
-			src: "/video/uw_study.mp4",
+			type: "black",
 			align: "center",
-			width: "84vw",
-			fit: "contain"
+			width: "100vw",
+			frame: "full"
 		},
 		beats: [
 			{
-				text: "One course on explainable AI pulled me into a computer science building I had never entered.",
-				placement: "top-left",
-				media: { type: "photo", src: "/images/uw_study.jpg", align: "right", width: "84vw", fit: "cover" }
+				text: "I was incredibly fortunate to meet mentors like Tadayoshi Kohno and Amy X. Zhang at UW Computer Science.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
 				text: "For three years, I worked between law and CS, learning the pace of labs, conferences, datasets, and collaborative technical research.",
-				placement: "bottom-left",
-				media: {
-					type: "photo",
-					src: "/images/uw_presentation_neurips_2023.png",
-					align: "center",
-					width: "82vw",
-					fit: "contain",
-					position: "center 32%"
-				}
+				placement: "center-left",
+				media: { type: "video", src: "/video/uw_lecture.mp4", align: "right", width: "86vw", fit: "contain" }
 			},
 			{
 				text: "I was often the only person in the room who had drafted legislation and also sat through a machine learning lecture.",
-				placement: "bottom-right",
-				media: { type: "photo", src: "/images/uwcs_2022.jpeg", align: "right", width: "82vw", fit: "cover" }
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
 		]
 	},
 	{
 		kicker: "Research Translation",
+		motif: { type: "papers", intensity: "medium", offset: 6 },
 		media: {
-			type: "photo",
-			src: "/images/scholar_stanford_present_2022.jpg",
+			type: "black",
 			align: "center",
-			width: "80vw",
-			fit: "cover"
+			width: "100vw",
+			frame: "full"
 		},
 		beats: [
 			{
-				text: "That combination turned out to matter.",
-				placement: "center-left"
-			},
-			{
 				text: "My work became a practice of translation across law, computer science, policy, public accountability, and human consequences.",
-				placement: "bottom-left"
-			},
-			{
-				text: "I published across FAccT, CHI, AIES, COLM, and law reviews, often writing from the space between fields rather than from the center of one.",
-				placement: "top-right"
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
 		]
 	},
@@ -230,13 +227,96 @@ export const scenes = [
 		},
 		beats: [
 			{
-				text: "After completing my doctorate, I began a postdoctoral fellowship at Princeton.",
+				text: "In 2025, after completing my doctorate, I began a postdoctoral fellowship at Princeton.",
 				placement: "bottom-left"
 			}
 		]
 	},
 	{
-		kicker: "2024-2026 / Princeton",
+		kicker: "2025-2026 / Princeton",
+		motif: { type: "papers", intensity: "high", offset: 7 },
+		media: {
+			type: "video",
+			src: "/video/papers.mp4",
+			align: "center",
+			width: "100vw",
+			fit: "cover",
+			tone: "dark",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "At Princeton, I brought this practice into AI governance research.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "My work now spans 22 peer-reviewed publications, including 2 US law review articles and 6 computer science conference papers across FAccT, CHI, AIES, and COLM.",
+				placement: "bottom-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "CITP widened the circle by bringing AI safety, machine learning, natural language processing, law, and public policy into the same conversation.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			},
+			{
+				text: "In spring 2026, that work extended to Harvard's Berkman Klein Center.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
+			}
+		]
+	},
+	{
+		kicker: "Why AI Safety",
+		media: {
+			type: "video",
+			src: "/video/iaseai_short.mp4",
+			align: "center",
+			width: "84vw",
+			fit: "contain",
+			allowSound: true
+		},
+		beats: [
+			{
+				text: "The AI risks I care about most are often epistemic and emotional.",
+				placement: "top-left"
+			},
+			{
+				text: "They appear through beliefs that become easier to shape, relationships that become harder to understand, and agency that becomes harder to exercise.",
+				placement: "center-left"
+			},
+			{
+				text: "A system can feel personal while remaining structurally loyal to someone else.",
+				placement: "bottom-right"
+			},
+			{
+				text: "This is why I study agency, dependency, persuasion, and accountability as ordinary conditions of AI interaction.",
+				placement: "bottom-left"
+			}
+		]
+	},
+	{
+		kicker: "Why Anthropic",
+		variant: "landscape",
+		media: {
+			type: "video",
+			src: "/video/sanfran_back.mp4",
+			align: "center",
+			width: "100vw",
+			fit: "cover",
+			frame: "full"
+		},
+		beats: [
+			{
+				text: "These are the problems I want to study at Anthropic.",
+				placement: "bottom-left"
+			}
+		]
+	},
+	{
+		kicker: "Why Anthropic",
+		variant: "pause anthropic-note",
 		media: {
 			type: "black",
 			align: "center",
@@ -245,51 +325,36 @@ export const scenes = [
 		},
 		beats: [
 			{
-				text: "After completing my doctorate, I joined Princeton's Center for Information Technology Policy.",
+				text: "Anthropic's safety work treats technical behavior, institutional accountability, and public trust as connected problems.",
 				placement: "center-left",
 				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "CITP widened the circle by bringing AI safety, machine learning, natural language processing, law, and public policy into the same conversation.",
-				placement: "bottom-left",
-				media: { type: "photo", src: "/images/princeton_citp_present_2025.jpeg", align: "right", width: "86vw", fit: "cover" }
-			},
-			{
-				text: "In spring 2026, that work extended to Harvard's Berkman Klein Center, another place where public institutions and AI governance meet.",
+				text: "That is the kind of research culture where my work on epistemic harms, emotional dependency, agency, and public accountability belongs.",
 				placement: "center-left",
-				media: { type: "photo", src: "/images/scholar_uk_present_2025.jpg", align: "center", width: "74vw", fit: "contain" }
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			},
 			{
-				text: "The through line stayed the same. I kept asking how advanced systems can be made accountable to people outside the rooms where they are built.",
-				placement: "center-left"
+				text: "I want to help make AI safety research legible and useful to people outside the rooms where advanced systems are built.",
+				placement: "center-left",
+				media: { type: "black", align: "center", width: "100vw", frame: "full" }
 			}
 		]
 	},
 	{
-		kicker: "Why AI Safety",
+		kicker: "Vibe Coding",
+		variant: "landscape",
 		media: {
 			type: "video",
-			src: "/video/iasesai-small.mp4",
+			src: "/video/coding.mp4",
 			align: "center",
-			width: "84vw",
-			fit: "contain",
-			allowSound: true
+			width: "100vw",
+			fit: "cover",
+			frame: "full"
 		},
 		beats: [
 			{
-				text: "I care about AI safety because many serious harms do not arrive as visible catastrophe.",
-				placement: "top-left"
-			},
-			{
-				text: "They appear gradually, through agency that becomes harder to exercise and relationships that become harder to understand.",
-				placement: "center-left"
-			},
-			{
-				text: "A system can feel personal while remaining structurally loyal to someone else.",
-				placement: "bottom-right"
-			},
-			{
-				text: "This is why I study agency, dependency, persuasion, and accountability as ordinary conditions of AI interaction, not as edge cases.",
+				text: "Vibe coding with Claude made that possibility feel concrete.",
 				placement: "bottom-left"
 			}
 		]
@@ -314,7 +379,7 @@ export const scenes = [
 				placement: "center-left"
 			},
 			{
-				text: "With Claude, I began turning abstract governance questions into tools and experiences people can actually move through.",
+				text: "With Claude and Claude Code, I began turning abstract governance questions into tools and experiences people can actually move through.",
 				placement: "bottom-left"
 			},
 			{

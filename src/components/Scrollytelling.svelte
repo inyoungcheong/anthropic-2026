@@ -1,9 +1,9 @@
 <script>
 	import Scene from "$components/Scene.svelte";
-	import FinaleGlass from "$components/FinaleGlass.svelte";
 	import ResearchCards from "$components/ResearchCards.svelte";
 	import ScrollProgress from "$components/ScrollProgress.svelte";
 	import { scenes } from "$data/scenes.js";
+	import { base } from "$app/paths";
 </script>
 
 <div class="page">
@@ -28,30 +28,10 @@
 		</div>
 	{/each}
 
-	<section class="chapter" id="anthropic">
-		<p class="eyebrow">Why Anthropic</p>
-		<div class="chapter-copy">
-			<p>
-				I am drawn to Anthropic because its safety work does not remain inside a narrow
-				research community. Publications on alignment faking, discrimination in model
-				decisions, subjective global opinions in language models, and the Claude System Card
-				have influenced how I think about public accountability in AI safety.
-			</p>
-			<p>
-				AI safety is a technical problem, and it is also a problem of institutional trust,
-				democratic oversight, and public understanding.
-			</p>
-			<p>
-				Anthropic's public benefit structure and its record of acting on stated principles are
-				why this is the place where I most want to continue this work.
-			</p>
-		</div>
-	</section>
-
 	<section class="chapter research" id="research">
 		<p class="eyebrow">What I Would Build</p>
 		<h2>Three projects I would start at the Anthropic Institute.</h2>
-		<p class="lead">Each one grows from work already underway.</p>
+		<p class="lead">Each one is a challenge I am already working toward.</p>
 		<ResearchCards />
 	</section>
 
@@ -80,7 +60,16 @@
 		</div>
 	</section>
 
-	<FinaleGlass />
+	<section class="thanks" aria-label="Thank you">
+		<video muted loop playsinline autoplay preload="metadata">
+			<source src={`${base}/video/sanfran_back.mp4`} type="video/mp4" />
+		</video>
+		<div class="thanks-shade"></div>
+		<div class="thanks-copy">
+			<p class="eyebrow">Final Note</p>
+			<h2>Thank you for reading.</h2>
+		</div>
+	</section>
 </div>
 
 <style>
@@ -175,18 +164,13 @@
 		color: rgba(255, 255, 255, 0.86);
 	}
 
-	.chapter {
-		background: #f4f0eb;
-		color: #253030;
-	}
-
 	.chapter .eyebrow {
-		color: rgba(37, 48, 48, 0.58);
+		color: rgba(255, 255, 255, 0.62);
 	}
 
 	.chapter-copy p,
 	.chapter .lead {
-		color: rgba(37, 48, 48, 0.82);
+		color: rgba(255, 255, 255, 0.84);
 	}
 
 	.research {
@@ -210,13 +194,13 @@
 		font-size: clamp(2rem, 5vw, 3.8rem);
 		font-weight: 400;
 		line-height: 1.12;
-		color: #253030;
+		color: #fffaf6;
 	}
 
 	.final-line {
 		margin-top: 3rem;
 		padding-top: 2rem;
-		border-top: 1px solid rgba(37, 48, 48, 0.18);
+		border-top: 1px solid rgba(255, 255, 255, 0.18);
 		font-style: italic;
 	}
 
@@ -226,19 +210,60 @@
 		gap: 1rem 2rem;
 		margin-top: 2rem;
 		padding-top: 2rem;
-		border-top: 1px solid rgba(37, 48, 48, 0.18);
+		border-top: 1px solid rgba(255, 255, 255, 0.18);
 	}
 
 	a {
 		font-family: var(--font-sans);
 		font-size: 0.92rem;
-		color: #253030;
+		color: #fffaf6;
 		text-decoration: none;
-		border-bottom: 1px solid rgba(37, 48, 48, 0.32);
+		border-bottom: 1px solid rgba(255, 250, 246, 0.36);
 	}
 
 	a:hover {
-		border-color: #253030;
+		border-color: #fffaf6;
+	}
+
+	.thanks {
+		position: relative;
+		min-height: 92vh;
+		display: flex;
+		align-items: flex-end;
+		padding: 0 6vw 8vh;
+		box-sizing: border-box;
+		overflow: hidden;
+		background: #070908;
+	}
+
+	.thanks video,
+	.thanks-shade {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.thanks video {
+		object-fit: cover;
+	}
+
+	.thanks-shade {
+		background:
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.72)),
+			linear-gradient(to right, rgba(0, 0, 0, 0.66), transparent 60%);
+	}
+
+	.thanks-copy {
+		position: relative;
+		z-index: 2;
+		max-width: 820px;
+	}
+
+	.thanks h2 {
+		color: #fffaf6;
+		font-size: clamp(2.8rem, 8vw, 7rem);
+		line-height: 0.98;
 	}
 
 	@media (max-width: 768px) {
@@ -253,6 +278,11 @@
 
 		.chapter {
 			padding: 10vh 0;
+		}
+
+		.thanks {
+			min-height: 82vh;
+			padding: 0 1.1rem 7vh;
 		}
 	}
 </style>

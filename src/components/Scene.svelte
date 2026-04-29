@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
+	import PaperMotif from "$components/PaperMotif.svelte";
 	import { base } from "$app/paths";
 
 	let { scene, index } = $props();
@@ -73,11 +74,14 @@
 
 <section class={`scene scene-${index} ${scene.variant ?? ""}`}>
 	<div bind:this={mediaEl} class={`scene-media align-${activeMedia.align ?? scene.media.align ?? "center"}`}>
+		{#if scene.motif?.type === "papers"}
+			<PaperMotif motif={scene.motif} {activeBeat} {activeMedia} />
+		{/if}
 		{#key activeMedia.src}
 			<div
-				class={`media-frame fit-${activeMedia.fit ?? scene.media.fit ?? "cover"} frame-${activeMedia.frame ?? "standard"}`}
+				class={`media-frame fit-${activeMedia.fit ?? scene.media.fit ?? "cover"} frame-${activeMedia.frame ?? "standard"} tone-${activeMedia.tone ?? scene.media.tone ?? "standard"}`}
 				style={`--media-width: ${activeMedia.width ?? scene.media.width ?? "86vw"}; --media-position: ${activeMedia.position ?? scene.media.position ?? "center center"};`}
-				transition:fade={{ duration: scene.variant === "archive" ? 140 : 520 }}
+				transition:fade={{ duration: scene.variant === "archive" ? 620 : 520 }}
 			>
 				{#if activeMedia.type === "photo"}
 					<img src={asset(activeMedia.src)} alt="" />
@@ -160,6 +164,7 @@
 
 	.media-frame {
 		position: relative;
+		z-index: 1;
 		width: min(var(--media-width), 1320px);
 		height: min(82vh, 780px);
 		background: #101312;
@@ -182,6 +187,12 @@
 		background:
 			linear-gradient(to bottom, rgba(0, 0, 0, 0.34), transparent 30%, rgba(0, 0, 0, 0.34)),
 			linear-gradient(to right, rgba(0, 0, 0, 0.28), transparent 34%, rgba(0, 0, 0, 0.28));
+	}
+
+	.tone-dark::after {
+		background:
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.68)),
+			linear-gradient(to right, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.18) 54%, rgba(0, 0, 0, 0.38));
 	}
 
 	img,
@@ -313,6 +324,10 @@
 		padding: 8vh 7vw;
 	}
 
+	.archive .scene-media:has(.frame-full) {
+		padding: 0;
+	}
+
 	.archive .media-frame {
 		height: min(58vh, 560px);
 		background: #070908;
@@ -403,6 +418,14 @@
 		color: rgba(254, 241, 236, 0.72);
 	}
 
+	.quiet.landscape {
+		min-height: 120vh;
+	}
+
+	.quiet.landscape .black-frame {
+		background: #070908;
+	}
+
 	.pause {
 		min-height: calc((var(--beat-count, 5) + 1) * 92vh);
 		background: #070908;
@@ -446,6 +469,23 @@
 	.pause .kicker {
 		margin-bottom: 1.2rem;
 		color: rgba(254, 241, 236, 0.58);
+	}
+
+	.anthropic-note {
+		min-height: calc((var(--beat-count, 4) + 1) * 76vh);
+	}
+
+	.anthropic-note .beat {
+		min-height: 76vh;
+	}
+
+	.anthropic-note .beat-inner {
+		max-width: min(940px, 84vw);
+	}
+
+	.anthropic-note p {
+		font-size: clamp(1.45rem, 3vw, 3.45rem);
+		line-height: 1.16;
 	}
 
 	.top-left,
