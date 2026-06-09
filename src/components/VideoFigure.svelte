@@ -1,7 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	let { src, caption = '', poster = '' } = $props();
+
+	function assetPath(path) {
+		if (!path) return '';
+		return `${base}${path.startsWith('/') ? path : `/${path}`}`;
+	}
+
+	let videoSrc = $derived(assetPath(src));
+	let posterSrc = $derived(assetPath(poster));
 	let videoEl = $state(null);
 	let ended = $state(false);
 	let hasBeenVisible = $state(false);
@@ -49,11 +58,11 @@
 	<div class="video-wrapper">
 		<video
 			bind:this={videoEl}
-			{src}
+			src={videoSrc}
 			muted
 			playsinline
 			preload="none"
-			poster={poster || undefined}
+			poster={posterSrc || undefined}
 		></video>
 		{#if ended}
 			<button class="replay-btn" onclick={replay} aria-label="Replay video">

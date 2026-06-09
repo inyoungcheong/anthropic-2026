@@ -20,7 +20,7 @@ const config = {
 		adapter: adapterStatic({ strict: false }),
 		prerender: {
 			handleHttpError: ({ path, message }) => {
-				if (path.startsWith('/audio/') || path.startsWith('/images/')) return;
+				if (path.startsWith('/audio/') || path.startsWith('/images/') || path.startsWith('/video/')) return;
 				throw new Error(message);
 			}
 		}
