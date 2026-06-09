@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2-Page CV — Cohere Lead, Asia Government Affairs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, margin=0.6in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+\usepackage[normalem]{ulem}
+
+\definecolor{dkgreen}{HTML}{31718F}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=dkgreen,
+    urlcolor=dkgreen,
+    citecolor=dkgreen
+}
+
+% Tight spacing
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\parindent}{0pt}
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\titlerule]
+\pagestyle{empty}
+
+% compact itemize
+\setlist[itemize]{nosep, leftmargin=1.2em, topsep=0.5pt, itemsep=0.5pt}
+
+% employer block: name bold (normal size), role smaller
+\newcommand{\employer}[3]{%
+  {\textbf{#1}\hfill\textnormal{#2}}\\
+  \textit{#3}%
+}
+
+% publication theme subheading + one-line description
+\newcommand{\pubtheme}[1]{%
+  \par\vspace{7pt}%
+  \noindent
+  {\small\bfseries\color{black}\uline{#1}}%
+  \nobreak\hspace{0.4em}%
+  \leaders\hrule height 0.4pt depth 0pt \hfill\par
+  \vspace{2pt}%
+}
+\newcommand{\pubdesc}[1]{%
+  \par\vspace{1pt}%
+  \begingroup
+  \leftskip=1.2em
+  \rightskip=0pt plus 1fil\relax
+  \parfillskip=0pt\relax
+  {\footnotesize\color{black!58}#1\par}%
+  \endgroup
+}
+
+\begin{document}
+
+%-----------------------------------------------------------------------
+% HEADER
+%-----------------------------------------------------------------------
+\begin{center}
+{\LARGE\bfseries Inyoung Cheong}\\[4pt]
+{\small
+\faEnvelope\ \href{mailto:iycheong@princeton.edu}{iycheong@princeton.edu}
+\quad\faGlobe\ \href{https://inyoungcheong.github.io}{inyoungcheong.github.io}
+\quad\faGraduationCap\ \href{https://scholar.google.com/citations?user=xwZI_jcAAAAJ&hl=en}{Google Scholar}
+\quad\faMapMarker*\ Bellevue, WA
+}
+\end{center}
+
+\vspace{-4pt}
+
+%-----------------------------------------------------------------------
+% SUMMARY
+%-----------------------------------------------------------------------
+\section*{Summary}
+{\small
+Legal scholar working at the intersection of law and frontier AI, with a Ph.D. in Law and seven years of AI governance research at Harvard, Princeton, and the University of Washington. My research covers free speech and intermediary liability for AI systems, the effects of AI on legal institutions such as public defenders' offices, and law-informed evaluations like duty-of-loyalty benchmarks co-developed with Consumer Reports. I publish across both computer science and law venues and bring eight years of leadership-level government experience in legislative drafting and regulatory practice across two Korean agencies.
+}
+
+%-----------------------------------------------------------------------
+% EDUCATION
+%-----------------------------------------------------------------------
+\section*{Education}
+
+\textbf{Ph.D.\ in Law}, University of Washington, Seattle \hfill 2024\\
+{\small Dissertation: \textit{\href{https://homes.cs.washington.edu/~yoshi/papers/theses/inyoung-cheong-dissertation.pdf}{Collaborative Approaches to AI Governance}} $\cdot$ Advisor: \href{https://gufaculty360.georgetown.edu/s/contact/003UH00000ZmP3HYAV/yoshi-kohno}{Tadayoshi Kohno}\\
+Research Assistant, School of Computer Science \& Engineering (2022--2024), \href{https://seclab.cs.washington.edu/}{Privacy \& Security Lab} and \href{https://social.cs.washington.edu/}{Social Futures Lab}}
+
+\textbf{LL.M.}, Seoul National University, Seoul, South Korea \hfill 2018\\
+{\small Thesis: \textit{\href{https://s-space.snu.ac.kr/handle/10371/141897}{Dispute Resolution by Administrative Agencies from a Public Law Perspective}} $\cdot$ Advisor: \href{https://law.snu.ac.kr/page_en/professor.php?wr_id=37}{Won-Woo Lee}}
+
+\textbf{B.A.\ Art Studies \& Economics}, Hongik University, Seoul, South Korea \hfill 2012
+
+
+%-----------------------------------------------------------------------
+% HONORS & AWARDS
+%-----------------------------------------------------------------------
+\section*{Honors \& Awards}
+{\small
+\begin{tabular*}{\textwidth}{@{}p{0.92\textwidth}@{\extracolsep{\fill}}r@{}}
+%Princeton CITP Postdoctoral Fellowship (\$220,000) \href{https://citp.princeton.edu/}{\faLink} & 2024\\
+\textbf{Consumer Reports} Public Interest Tech Fellowship (\$35,000) \href{https://innovation.consumerreports.org/2025-public-interest-tech-fellows/}{\faLink} & 2025\\
+\textbf{Schmidt Science} AI at Work Project Development Award (\$10,000) \href{https://www.schmidtsciences.org/ai-at-work/}{\faLink} & 2025\\
+\textbf{OpenAI} Democratic Inputs to AI Grant (\$100,000, with Prof.\ Amy X.\ Zhang) \href{https://openai.com/index/democratic-inputs-to-ai/}{\faLink} & 2023\\
+KSEA Northwest Research Conference Best Poster Award \href{https://seattle.ksea.org/nwrc2022/?page_id=3522}{\faLink} & 2022\\
+University of Washington Homecoming Scholar Award (one of six selected university-wide) \href{https://web.archive.org/web/20240910180015/https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/}{\faLink} & 2021\\
+%Korean Bar Association of Washington Law Student Scholarship (\$3,000) \href{https://www.kabawa.org/kaba-scholarship-recipients}{\faLink} & 2021\\
+\textbf{Fulbright} Graduate Scholarship (\$70,000) & 2019\\
+\end{tabular*}
+}
+
+%-----------------------------------------------------------------------
+% PAGE BREAK — Publications and remainder on page 2
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------------
+% SELECTED PUBLICATIONS
+%-----------------------------------------------------------------------
+\section*{Selected Publications and Writing {\normalfont\small * All 22 peer-reviewed publications are listed on my \href{https://inyoungcheong.github.io/publications}{website}.}}
+{\small
+\pubtheme{Novel Legal Issues in Frontier AI}
+\begin{itemize}[itemsep=4pt]
+\item \textbf{Cheong, I.} (2026). \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5435335}{Conversational AI and Human-centered First Amendment}. \textit{Michigan Technology Law Review}.
+\pubdesc{Proposes an institutional approach to the First Amendment that treats an AI provider as neither a protected speaker nor a neutral tool, and reconciles its discretion with users' rights to receive information.}
+
+%\item \textbf{Cheong, I.} (2026). \href{https://inyoungcheong.github.io/would-you-marry}{Would You Marry Superintelligence?}. in \textit{Law, Ethics, and Superintelligence: After the Singularity (Edward Elgar Publisher, forthcoming)}.
+%\pubdesc{Argues against legal recognition of human-AI marriage, tracing why marriage as an institution does not hold when one party is an AI system.}
+\item He, L., Qi, X., Liao, M., \textbf{Cheong, I.}, Mittal, P., Chen, D., Henderson, P. (2025). \href{https://arxiv.org/abs/2503.16833}{End-to-End Audio Language Models Should Take into Account the Principle of Least Privilege}. \textit{AAAI/ACM Conference on AI, Ethics, and Society (AIES)}.
+\pubdesc{Argues the principle of least privilege should decide whether audio language models are deployed end-to-end or cascaded, given the privacy and legal exposure of processing raw voice.}
+\item \textbf{Cheong, I.}, Caliskan, A., Kohno, T. (2024). \href{https://link.springer.com/article/10.1007/s43681-024-00451-4}{Safeguarding Human Values: Rethinking US Law for Generative AI's Societal Impacts}. \textit{AI and Ethics}.
+\pubdesc{Tests US law against AI harms to values like privacy and autonomy through expert-built scenarios, and finds gaps in liability.}
+\item \textbf{Cheong, I.} (2023). \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4167424}{Freedom of Algorithmic Expression}. \textit{University of Cincinnati Law Review, Vol.\ 91}.
+\pubdesc{Proposes an expressive-intent test for when platform content moderation algorithms count as protected speech, and marks where government regulation stays available despite that protection.}
+\end{itemize}
+\pubtheme{AI Safety Evaluations with a Legal Alignment Lens}
+\begin{itemize}[itemsep=4pt]
+\item \textbf{Cheong, I.}, Hua, W., Mahari, R., South, T., He, Z., Pentland, A., Pei, J. (2026). \href{https://inyoungcheong.github.io/io/assets/pdf/agents.pdf}{AI Agents Are Not Ready to be \textit{Agents}: Loyalty, Trust, and Accountability Issues in AI Delegation}. \textit{NeurIPS Position Paper Track} (under review).
+\pubdesc{Draws on US agency law to show why AI agents cannot meet the fiduciary duties of loyalty, disclosure, care, and obedience, and why liability and respondeat superior do not transfer to a distributed AI pipeline.}
+\item \textbf{Cheong, I.} (2025). \href{https://innovation.consumerreports.org/encoding-loyalty-principles-into-ai-agents-behavior/}{Encoding Loyalty Principles into AI Agents' Behavior}. \textit{Consumer Reports Innovation Blog}.
+\pubdesc{Sketches the research framework on utilizing agency law principles for building evaluation benchmarks.}
+\item \textbf{Cheong, I.}, Xia, K., Feng, K.J., Chen, Q.Z., Zhang, A.X. (2024). \href{https://dl.acm.org/doi/abs/10.1145/3630106.3659048}{(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible LLM Policies for Legal Advice}. \textit{ACM Conference on Fairness, Accountability, and Transparency (FAccT '24)}. *\href{https://scholar.google.com/citations?user=xwZI_jcAAAAJ&hl=en}{cited 140+ times}.
+\pubdesc{Uses case-based workshops with 20 legal experts to set criteria for when LLMs should and should not give legal advice, surfacing unauthorized practice of law, confidentiality, and liability concerns.}
+
+\end{itemize}
+\pubtheme{Applications that Bolster Democratic Processes}
+\begin{itemize}[itemsep=4pt]
+\item \textbf{Cheong, I.},* Liu, P.,* Stammbach, D.,* Henderson, P. (2026). \href{https://arxiv.org/abs/2510.22933}{How Can AI Augment Access to Justice? Public Defenders' Perspectives on AI Adoption}. \textit{ACM Conference on Fairness, Accountability, and Transparency (FAccT '26)}.
+\pubdesc{Maps public defense into the tasks where AI can and cannot help, drawing on interviews with 17 public defenders, and sets out the safeguards they require for responsible use.}
+\item Stammbach, D., Zhang, K., Liu, P., Nadeem, N., \textbf{Cheong, I.}, Zheng, L., Henderson, P. (2026). \href{https://arxiv.org/html/2601.14348v2}{Legal Retrieval for Public Defenders}. \textit{Transactions on Machine Learning Research (TMLR)} (under review).
+\pubdesc{Builds a retrieval system over public defenders' internal briefs so attorneys can surface relevant prior work quickly.}
+\item Feng, K.J., Kuo, T.S., Chen, Q.Z., \textbf{Cheong, I.}, Holstein, K., Zhang, A.X. (2026). \href{https://dl.acm.org/doi/full/10.1145/3772318.3791689}{PolicyPad: Collaborative Prototyping of LLM Policies}. \textit{ACM Conference on Human Factors in Computing Systems (CHI)}.
+\pubdesc{Builds a tool that lets stakeholders draft and test LLM policies together, while observing LLM's behavioral changes.}
+\end{itemize}
+}
+%\item \textbf{Cheong, I.} (2022). \href{https://inyoungcheong.files.wordpress.com/2022/12/u.s.-federal-administrative-law-and-civil-penalties.pdf}{The US Administrative Law and Civil Penalties}. \textit{Administrative Law Journal, Vol.\ 69} (in Korean).
+%\item \textbf{Cheong, I.} (2021). \href{https://github.com/inyoungcheong/pdfs/blob/main/2021-facebook3.pdf}{After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement}. \textit{Journal of Law and Economic Regulation} (in Korean).
+%\item \textbf{Cheong, I.} (2020). \href{https://github.com/inyoungcheong/pdfs/blob/main/2020-facebook2.pdf}{After Facebook's 2016 Data Breach II: The U.S.\ Federal Courts' Consumer Class Actions}. \textit{Journal of Law and Economic Regulation} (in Korean).
+
+
+%-----------------------------------------------------------------------
+% SELECTED TALKS (video only)
+%-----------------------------------------------------------------------
+
+
+\section*{Professional Experience}
+\employer{Harvard University, Berkman Klein Center for Internet \& Society}{2026\,--\,present}{Fellow \href{https://cyber.harvard.edu/}{\faLink}}
+\begin{itemize}
+\item Research on AI governance and democratic institutions; advised South Korea's \href{https://pipc.go.kr/eng/index.do}{Personal Information Protection Commission} on AI safety (Contact: \href{https://www.linkedin.com/in/jieun-hwang-17a322374/}{Director Jieun Hwang}).
+\end{itemize}
+
+\vspace{3pt}
+\employer{Consumer Reports}{2025\,--\,present}{Public Interest Tech Fellow \href{https://innovation.consumerreports.org/2025-public-interest-tech-fellows/}{\faLink}}
+\begin{itemize}
+\item Lead team of five building duty-of-loyalty evaluation benchmarks from 400+ legal scenarios; co-organized the \href{https://loyalagents.org/}{Loyal Agents Workshop} with Stanford HAI.
+\end{itemize}
+
+\vspace{3pt}
+\employer{Princeton University, CITP}{2024\,--\,present}{Postdoctoral Research Associate \href{https://citp.princeton.edu/citp-people/inyoung-cheong/}{\faLink}}
+\begin{itemize}
+\item Led \href{https://sites.google.com/princeton.edu/ai-for-public-defenders}{qualitative study with public defenders} with the \href{https://www.nj.gov/defender/}{New Jersey Office of the Public Defender} (FAccT '26) and contributed to \href{https://www.justicebench.org/project/pd-brief-bank}{BriefBank}, a legal retrieval system for internal briefs.
+\end{itemize}
+
+\vspace{3pt}
+\employer{University of Washington School of Law}{2023}{Faculty Affiliate \& Instructor \href{https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung/}{\faLink}}
+\begin{itemize}
+\item Independently taught \href{https://inyoungcheong.github.io/lawe553}{LAW 553E: Technology Law and Public Policy Seminar} to 25 JD students; first PhD student to serve as independent instructor for a JD course at UW Law (\href{https://inyoungcheong.github.io/assets/pdf/Eval_WI23.pdf}{evaluations}).
+\end{itemize}
+
+\vspace{3pt}
+\employer{Ministry of Culture, Sports, and Tourism}{2016\,--\,2019}{Deputy Director, Content Industry Policy Division, Government of South Korea}
+\begin{itemize}
+\item Developed \href{http://www.mcst.go.kr/kor/s_notice/press/pressView.jsp?pSeq=17069}{strategic AI/VR investment plan}, doubling budget to \$200M; ranked top 1\% among 1,000+ employees. Advised on Netflix Korea legal review; secured \$10M for \href{https://www.youtube.com/watch?v=LTzAHsXxtZQ}{National Museum innovation project} via National Assembly.
+\item Coordinated establishment of \href{https://acw.or.kr/}{self-regulatory organization} for platform--artist dispute resolution on the web.
+\end{itemize}
+
+\vspace{3pt}
+\employer{Korea Communications Commission (KCC)}{2012\,--\,2016}{Deputy Director, Policy Coordination \& Legislative Affairs, Government of South Korea}
+\begin{itemize}
+\item Drafted 20+ bills and regulatory amendments; secured enactment of 10+ into law. Led legacy media investigation on illegal sponsored content; participated in Uber Korea regulatory review.
+\item Licensed new public broadcasting channel (\href{https://global.ebs.co.kr/global/channels/satelliteIpTv}{EBS2}) through sociotechnical impact assessment.
+\end{itemize}
+
+\section*{Selected Talks}
+{\small
+\begin{itemize}[itemsep=2pt]
+
+\item \textbf{AI Manipulation and Freedom of Thought}, International Association of Safe and Ethical AI Conference, Paris, France (2025) \href{https://youtu.be/G48hDgad-gE}{[\faVideo\ video]}{\footnotesize\textsuperscript{*}\,One of 40 speakers selected from 1,000+ applicants; 700+ in-person attendees; only speaker from legal scholarship.}
+\item \textbf{AI Intentionality \& Accountability}, Law-Following AI Workshop, Cambridge, UK (2025) \href{https://www.youtube.com/watch?v=0ukHp98RlcQ}{[\faVideo\ video]}
+\item \textbf{Human-Centered First Amendment for AI Regulation}, Princeton CITP, Princeton, NJ (2025) \href{https://www.youtube.com/watch?v=dVgR4o3dCtc}{[\faVideo\ video]}
+\item \textbf{Responsible LLM Policies for Legal Advice}, ACM FAccT '24, Rio de Janeiro, Brazil (2024) \href{https://www.youtube.com/watch?v=O-KQV_0DIVE}{[\faVideo\ video]}
+\item \textbf{Online Content Co-regulation: Case Study of South Korea}, TrustCon, San Francisco, US (2022) \href{https://youtu.be/U1ShVhIDlI8}{[\faVideo\ video]}
+\end{itemize}
+}
+
+%-----------------------------------------------------------------------
+% MEDIA
+%-----------------------------------------------------------------------
+\section*{Media}
+{\small
+\begin{itemize}[itemsep=1pt]
+\item \href{https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857}{\textbf{The Wall Street Journal}} (2023). Featured expert interview on AI copyright infringement and fair use doctrine.
+\item \href{https://open.spotify.com/episode/5dVHC4Bjdbo8ACcoRuxV5V}{\textbf{NPR/WHYY ``The Pulse''}} (2025). Featured public radio expert interview on emotional reliance on AI.
+\item \href{https://blog.citp.princeton.edu/2025/02/11/balancing-free-speech-safety-envisioning-a-human-centered-first-amendment-for-ai-regulation-techtakes/}{\textbf{Princeton CITP Blog}} (2025). Featured public-speaking at IASEAI Conference 2025.
+\item \href{https://medium.com/legal-design-and-innovation/ai-access-to-justice-webinar-series-ai-in-practice-eb297e9adb78}{\textbf{Stanford Legal Design Lab Blog}} (2024). Featured presentation on responsible AI policies for legal advice.
+\item \href{https://innovation.consumerreports.org/encoding-loyalty-principles-into-ai-agents-behavior/}{\textbf{Consumer Reports Innovation Blog}} (2025). Encoding loyalty principles into AI agents' behavior.
+\end{itemize}
+}
+
+%-----------------------------------------------------------------------
+% SERVICE & LEADERSHIP
+%-----------------------------------------------------------------------
+\section*{Service \& Leadership}
+{\small
+\textbf{Peer Review:} ACM FAccT (2024, 2025), ACM CHI (2025), AAAI/ACM AIES (2025), NeurIPS MP2 Workshop (2023), ICLR Bi-Align Workshop (2025), \textit{AI and Ethics} (2024), \textit{Law \& Social Inquiry} (2026), \textit{Behavior and Ethics} (2026)\\
+\textbf{Editorial:} \href{https://web.archive.org/web/20230301022116/https://wjlta.com/editorial-team/}{Submission Editor} (2022--2023) and \href{https://web.archive.org/web/20220121090005/https://wjlta.com/editorial-team/}{Editorial Staff} (2021--2022), Washington Journal of Law, Technology and Arts\\
+\textbf{Legal Director}, Korean American Scientists and Engineers Association, Seattle (2023--2024)\\
+\textbf{Board Member}, Korean American Bar Association of Washington (2023--2024)\\
+\textbf{Global Policy Advisor}, Korea Association of Data Protection Professionals (2021--2022)
+}
+
+%-----------------------------------------------------------------------
+% SKILLS
+%-----------------------------------------------------------------------
+\section*{Skills}
+{\small
+\textbf{Policy \& Legal:} Legislative drafting, regulatory impact assessment, notice-and-comment rulemaking, stakeholder engagement\\
+\textbf{Software Engineering:} Python, R, JavaScript/React; full-stack web development (Node.js, Firebase); LLM application development and prompt engineering. Author of \href{https://github.com/inyoungcheong/vavaprompter}{VavaPrompter}, an open-source Chrome extension for creative prompt management\\
+\textbf{Research:} Survey design (Qualtrics, Prolific), qualitative coding (Atlas.ti, Taguette), WestLaw, LexisNexis\\
+\textbf{Languages:} Korean (native), English (fluent)
+}
+
+\vfill
+{\scriptsize Last updated \today.}
+
+\end{document}
